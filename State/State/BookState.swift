@@ -22,7 +22,7 @@ struct BookOnShelfState: BookState {
     
     func borrow() {
         print("You have borrowed me.")
-        context.setState(BookLendState(context: context))
+        context.setState(BookLendState(bookContext: context))
     }
     
     func sendBack() {
@@ -45,7 +45,7 @@ struct BookOnShelfState: BookState {
 
 struct BookLendState: BookState {
     
-    let context: BookContext
+    let bookContext: BookContext
     
     func borrow() {
         print("No actions")
@@ -53,7 +53,7 @@ struct BookLendState: BookState {
     
     func sendBack() {
         print("You have returned me.")
-        context.setState(BookOnShelfState(context: context))
+        bookContext.setState(BookOnShelfState(context: bookContext))
     }
     
     func reserve() {
@@ -92,6 +92,6 @@ struct BookReservedState: BookState {
     
     func fetch() {
         print("You have borrowed me.")
-        context.setState(BookLendState(context: context))
+        context.setState(BookLendState(bookContext: context))
     }
 }
