@@ -78,7 +78,7 @@ struct Picture {
 struct Printer {
     init() {
         sleep(5)
-        print("The printer is ready to paint pictures...")
+        print("After 5 seconds...")
     }
     
     func paint(picture: Picture) {
